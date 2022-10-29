@@ -1,0 +1,25 @@
+<div class="slider">
+	<ng-container *ngFor="let TM_item of TM_items; let i = index">
+		<div class="slide" *ngIf="i == CurrentSlideIndex" @slidefade>
+			<div class="slide-bg">
+				<img class="slide-bg-image" [src]="'https://image.tmdb.org/t/p/original/' + TM_item.backdrop_path" alt="" />
+			</div>
+			<div class="slide-pane">
+				<h2 class="name">{{ TM_item.title }}</h2>
+				<div class="meta">
+					<div class="info">
+						<span class="rating">
+							<span class="app-icons">star</span><span class="rating-value">{{ TM_item.vote_average }}</span
+							><span>/10</span>
+						</span>
+						<span>{{ TM_item.vote_count }}</span>
+						<span>{{ TM_item.release_date | date: 'yyyy' }}</span>
+					</div>
+				</div>
+				<div class="desc mt-6">
+					{{ TM_item.overview }}
+				</div>
+			</div>
+		</div>
+	</ng-container>
+</div>
